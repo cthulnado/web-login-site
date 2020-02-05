@@ -36,4 +36,8 @@ stages:
         dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: |
           $(tag)
-    
+    - task: AzureKeyVault@1
+      inputs:
+        azureSubscription: 'Pay-As-You-Go(76d4420c-df5b-463e-a089-ec451ff7e3d7)'
+        KeyVaultName: 'TenableCSDemoKeyVaultDec'
+        SecretsFilter: '*'
